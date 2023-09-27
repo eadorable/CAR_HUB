@@ -19,7 +19,7 @@ class CarsController < ApplicationController
       redirect_to @car, notice: 'Car was successfully created.'
     else
       ## render the new car form again for correction of typos
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
