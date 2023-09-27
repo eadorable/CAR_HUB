@@ -18,7 +18,7 @@ class CarsController < ApplicationController
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
     else
-      ## render the new car form again for correction of typos
+      ## render the new car form again for correction of typos and trigger authenticity token error
       render :new, status: :unprocessable_entity
     end
   end
