@@ -11,9 +11,21 @@ class CarsController < ApplicationController
     @car = Car.new
   end
 
-  def create; end
+  def create
+    @car = Car.new(car_params)
+    @car.user = current_user
+
+    if @car.save
+      redirect_to @car, notice: 'Car was successfully created.'
+    else
+      ## render the new car form again for correction of typos
+      render :new
+    end
+  end
 
   private
 
-  def car_params; end
+  def car_params
+    params.require(:car).permit(:brand, :year, :model, :price, :description)
+  end
 end
