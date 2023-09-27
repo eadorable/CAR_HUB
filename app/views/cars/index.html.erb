@@ -1,1 +1,13 @@
 <h1>This is home page ( car => index )</h1>
+
+
+<% @cars.each do |car| %>
+  <div class="card mb-3">
+    <li>
+      <%= car.brand %>
+      <%= car.model %>
+      <%= car.user.email %>
+    price:<%= car.price %>
+    </li>
+  </div>
+<% end %>
