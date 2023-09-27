@@ -1,1 +1,12 @@
-<h1>I am new (cars => new)</h1>
+<div class="container">
+  <h1>Add a car</h1>
+
+  <%= simple_form_for(@car) do |f| %>
+    <%= f.input :brand %>
+    <%= f.input :year %>
+    <%= f.input :model %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>
