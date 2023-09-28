@@ -1,13 +1,16 @@
-<h1>This is home page ( car => index )</h1>
+<div class="navbar-lewagon ">
+  <h2>Used Car Hub</h2>
+</div>
 
-
+<div class="cards">
 <% @cars.each do |car| %>
   <div class="card mb-3">
     <li>
-      <%= car.brand %>
+      <%= link_to car.brand, car_path(car) %>
       <%= car.model %>
       <%= car.user.email %>
     price:<%= car.price %>
     </li>
   </div>
 <% end %>
+</div>
