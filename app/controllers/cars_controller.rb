@@ -1,6 +1,14 @@
 class CarsController < ApplicationController
   def index
-    @cars = Car.all
+    if params[:search].present?
+      if !params[:search][:query].empty?
+       @cars = Car.where(brand: params[:search][:query])
+      else
+        @cars =Car.all
+      end
+    else
+      @cars =Car.all
+    end
   end
 
   def show
