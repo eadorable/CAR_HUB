@@ -2,12 +2,12 @@ class CarsController < ApplicationController
   def index
     if params[:search].present?
       if !params[:search][:query].empty?
-       @cars = Car.where(brand: params[:search][:query])
+        @cars = Car.where(brand: params[:search][:query])
       else
-        @cars =Car.all
+        @cars = Car.all
       end
     else
-      @cars =Car.all
+      @cars = Car.all
     end
   end
 
@@ -21,8 +21,8 @@ class CarsController < ApplicationController
 
   def create
     @car = Car.new(car_params)
-    @user = User.find(1)
-    @car.user = @user
+    @user = User.find(current_user.id)
+    @car.user_id = @user.id
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
     else
