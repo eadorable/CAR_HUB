@@ -1,12 +1,14 @@
 .search-form-control {
-  position: relative;
+display: flex;
 }
 
 .search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 8px;
+  flex-direction: row;
+  // boreder: 2px solid red;
+  // position: absolute;
+  // top: 8px;
+  // bottom: 8px;
+  // right: 8px;
 }
 
 .search-form-control .form-control {
