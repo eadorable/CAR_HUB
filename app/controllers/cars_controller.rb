@@ -25,8 +25,8 @@ class CarsController < ApplicationController
   # Create a new car and associate it with the current user
   def create
     @car = Car.new(car_params)
-    @user = User.find(2)
-    @car.user = @user
+    @user = User.find(current_user.id)
+    @car.user_id = @user.id
     if @car.save
       redirect_to @car, notice: 'Car was successfully created.'
     else
