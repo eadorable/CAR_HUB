@@ -3,12 +3,12 @@
     <a class="navbar-brand" href="/">
       <%= image_tag "usedcar_hub.jpg", alt: "usedcar_hub_logo", width: 100 %>
 </a>
-
+<div class="d-flex mx-3">
 <%= simple_form_for :search, url: root_path, method: :get do |f| %>
   <div class="search-form-control form-group ">
     <input class="form-control string required mx-1" placeholder="Search any car" type="text" name="search[query]" id="search_query" />
     <button name="button" type="submit" class="btn btn-primary">
-      <i class="fas fa-search"></i> Search
+      <i class="fas fa-search"></i>
     </button>
   </div>
 <% end %>
@@ -16,7 +16,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
@@ -45,5 +45,6 @@
         <% end %>
       </ul>
     </div>
+  </div>
   </div>
 </div>
