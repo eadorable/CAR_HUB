@@ -1,0 +1,12 @@
+<h1>Update Car's information</h1>
+
+<%= simple_form_for(@car) do |f| %>
+  <%= f.input :brand %>
+  <%= f.input :year %>
+  <%= f.input :model %>
+  <%= f.input :price %>
+  <%= f.input :description %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+<% end %>
+
