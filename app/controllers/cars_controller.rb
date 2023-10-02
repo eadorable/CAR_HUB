@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   # Display a list of cars with optional brand filtering
   def index
     if params[:search].present?

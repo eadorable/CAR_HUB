@@ -4,11 +4,13 @@
 
 </div>
 
-<div class="row" data-controller="logo">
+<div class="row">
   <% @cars.each do |car| %>
-  <div class="col-3 card" data-logo-target="carLogo">
+  <div class="col-3 card">
      <h3><%= link_to car.brand, car_path(car.id) %></h3>
+     <% if !car.photos.empty? %>
+      <%= cl_image_tag car.photos.first.key %>
+     <% end %>
   </div>
   <% end %>
 </div>
-
