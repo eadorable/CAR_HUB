@@ -1,16 +1,30 @@
 <div class="banner">
   <h1>My Car</h1>
   <p><%= link_to "Add a car", new_car_path %></p>
-
 </div>
 
 <div class="row">
   <% @cars.each do |car| %>
-  <div class="col-3 card">
-     <h3><%= link_to car.brand, car_path(car.id) %></h3>
-     <% if !car.photos.empty? %>
-      <%= cl_image_tag car.photos.first.key %>
-     <% end %>
-  </div>
+    <div class="col-md-4">
+      <div class="card mt-4 car-card">
+        <% if car.photos.present? %>
+          <%= link_to car_path(car.id) do %>
+            <%= cl_image_tag car.photos.first.key, class: "card-img-top", alt: "Car Photo" %>
+          <% end %>
+        <% else %>
+          <!-- Use the default photo when no photos are available -->
+          <%= link_to car_path(car.id) do %>
+            <%= image_tag "usedcar_hub.jpg", class: "card-img-top", alt: "Default Car Photo" %>
+          <% end %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><strong><%= car.brand %></strong></h5>
+          <p class="card-text"><%= "#{car.year} #{car.model}" %></p>
+          <p class="card-text">€<%= car.price %></p>
+          <p><%= link_to "See more details...", car_path(car.id) %></p>
+          <p class="delete-btn"><%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

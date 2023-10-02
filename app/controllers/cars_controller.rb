@@ -36,17 +36,6 @@ class CarsController < ApplicationController
     end
   end
 
-  # def create
-  #   @user = current_user
-  #   @car = @user.cars.build(car_params)
-
-  #   if @car.save
-  #     redirect_to @car, notice: 'Car was successfully created.'
-  #   else
-  #     render :new, status: :unprocessable_entity
-  #   end
-  # end
-
   def edit
     @car = Car.find(params[:id])
   end
