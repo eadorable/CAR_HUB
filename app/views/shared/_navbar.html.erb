@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-usedcar">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="/">
       <%= image_tag "usedcar_hub.jpg", alt: "usedcar_hub_logo", width: 100 %>
 </a>
 
@@ -18,21 +18,27 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
+        <% if user_signed_in? %>
           <li class="nav-item active">
             <a class="nav-link" href="/">Home</a>
           </li>
-    
+
           <li class="nav-item dropdown">
             <i class="avatar dropdown-toggle fa-solid fa-user fa-lg align-bottom" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" data-turbo-method="delete" href="#">Log out</a>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
           <!--li class="nav-item"-->
           <!--/li-->
+        <% else %>
+          <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>
