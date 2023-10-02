@@ -1,12 +1,42 @@
-<h1>I am show page (cars => show)</h1>
 
-<h2>
-  <%= @car.model %>
-  <%= @car.user.email %>
-</h2>
-
+<div class="card--container my-5">
 <% @car.photos.each do |photo| %>
   <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
 <% end %>
 
-<p><%= link_to "Home", root_path %></p>
+
+
+<!-- Car Details Column -->
+  <div class="col">
+    <div class="card-body mx-5">
+
+      <!-- Car Title (Brand and Model side by side) -->
+      <h2 class="card-title">
+        <%= @car.brand %> - <%= @car.model %>
+      </h2>
+
+      <!-- Car Price -->
+      <p class="card-text">
+        <strong>Price:</strong> $<%= @car.price %>
+      </p>
+
+      <!-- Car Brand -->
+      <p class="card-text">
+        <strong>Brand:</strong> <%= @car.brand %>
+      </p>
+
+      <!-- Car Year -->
+      <p class="card-text">
+        <strong>Year:</strong> <%= @car.year %>
+      </p>
+
+        <!-- Car Description -->
+      <p class="card-text">
+        <strong>Description:</strong> <%= @car.description %>
+      </p>
+
+      <!-- Buy button (not functional for now) -->
+      <a href="#" class="btn btn-primary">Buy</a>
+    </div>
+  </div>
+</div>
