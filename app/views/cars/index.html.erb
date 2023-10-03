@@ -1,6 +1,6 @@
 <div class="banner">
-  <h1>My Car</h1>
-  <p><%= link_to "Add a car", new_car_path %></p>
+  <h1>UsedCar Hub</h1>
+ 
 </div>
 
 <div class="row">
@@ -22,7 +22,9 @@
           <p class="card-text"><%= "#{car.year} #{car.model}" %></p>
           <p class="card-text">€<%= car.price %></p>
           <p><%= link_to "See more details...", car_path(car.id) %></p>
-          <p class="delete-btn"><%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
+          <p class="delete-edit-btn">
+          <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-primary link-btn" %>
+          <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger link-btn"  %></p>
         </div>
       </div>
     </div>
