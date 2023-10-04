@@ -22,8 +22,12 @@
           <p class="card-text">€<%= car.price %></p>
           <p><%= link_to "See more details...", car_path(car.id) %></p>
           <p class="delete-edit-btn">
-          <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-primary link-btn" %>
-          <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger link-btn"  %></p>
+            <% if user_signed_in? && current_user == car.user %>
+              <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-primary link-btn" %>
+              <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger link-btn" %>
+            <% end %>
+          </p>
+
         </div>
       </div>
     </div>
