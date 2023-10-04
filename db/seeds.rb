@@ -29,10 +29,10 @@ end
 puts 'creating cars...'
 # Create an array of hashes containing the cars data we want to seed
 cars_data = [
-  { brand: 'Ferrari', year: 2021, model: 'F8 Tributo', price: 300000, description: 'Top of the line Ferrari' },
-  { brand: 'Lamborghini', year: 2021, model: 'Aventador', price: 400000, description: 'Top of the Line Lamborghini' },
-  { brand: 'Porsche', year: 2021, model: '911 Turbo S', price: 200000, description: 'Top of the line Porsche' },
-  { brand: 'Aston Martin', year: 2021, model: 'DBS Superleggera', price: 250000, description: 'Top of the line Aston Martin' }
+  { brand: 'Ferrari', year: 2021, model: 'F8 Tributo', price_cents: 300000, description: 'Top of the line Ferrari' },
+  { brand: 'Lamborghini', year: 2021, model: 'Aventador', price_cents: 400000, description: 'Top of the Line Lamborghini' },
+  { brand: 'Porsche', year: 2021, model: '911 Turbo S', price_cents: 200000, description: 'Top of the line Porsche' },
+  { brand: 'Aston Martin', year: 2021, model: 'DBS Superleggera', price_cents: 250000, description: 'Top of the line Aston Martin' }
 ]
 
 # Create an empty array to store the cars
