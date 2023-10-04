@@ -7,4 +7,11 @@ class Car < ApplicationRecord
   validates :model, presence: true
   validates :price, presence: true, numericality: { greater_than: 0 }
   validates :description, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :grobal_search,
+    against: [ :brand, :model, :year, :description],
+    using: {
+      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+    }
 end
