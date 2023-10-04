@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :user
   has_many_attached :photos
+  monetize :price_cents
 
   validates :brand, presence: true
   validates :year, presence: true, numericality: { only_integer: true }
