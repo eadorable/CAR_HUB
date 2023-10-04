@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   # Display a list of cars with optional brand filtering
   def index
     @cars = Car.all
-    if params[:search].present?
+    if params[:search].present? && params[:search][:query] != ''
       @cars = Car.grobal_search(params[:search][:query])
     end
   end
