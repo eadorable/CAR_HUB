@@ -11,6 +11,7 @@ class CarsController < ApplicationController
   # Show details about a specific car
   def show
     @car = Car.find(params[:id])
+    @order = Order.new
   end
 
   # display the form to create a new car

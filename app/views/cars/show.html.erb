@@ -34,9 +34,10 @@
       <p class="card-text">
         <strong>Description:</strong> <%= @car.description %>
       </p>
-
-      <!-- Buy button (not functional for now) -->
-      <a href="#" class="btn btn-primary">Buy</a>
+      
+      <%= simple_form_for [@car, @order] do |f| %>
+      <%= f.submit "Buy", class: "btn btn-primary" %>
+      <% end %>
     </div>
   </div>
 </div>
