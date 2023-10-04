@@ -58,6 +58,7 @@ gem "autoprefixer-rails"
 gem "font-awesome-sass", "~> 6.4.2"
 gem "simple_form", github: "heartcombo/simple_form"
 gem "cloudinary"
+gem 'money-rails', '~> 1.12'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

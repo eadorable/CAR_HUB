@@ -6,7 +6,7 @@
     <%= f.input :brand, collection: brand_names %>
     <%= f.input :year %>
     <%= f.input :model %>
-    <%= f.input :price %>
+    <%= f.input :price_cents %>
     <%= f.input :description %>
     <%= f.input :photos, as: :file, input_html: { multiple: true } %>
     <%= f.submit "Save", class: "btn btn-primary" %>

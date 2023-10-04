@@ -1,35 +1,53 @@
+<div class="container">
+  <div class="row justify-content-center">
 
-<div class="card--container my-5">
-<% @car.photos.each do |photo| %>
-  <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-<% end %>
+    <!-- Car Image Carousel Column (Left) -->
+    <div class="col-md-6 my-5">
+      <div id="carImageCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
 
+          <!-- Loop through car photos and create carousel items -->
+          <% @car.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
+              <!-- Display car image using Cloudinary's 'cl_image_tag' helper -->
+              <%= cl_image_tag photo.key, class: "carousel-image" %>
 
+              <!-- Car Description -->
+          <p class="card-text mt-3">
+            <strong>Description:</strong> <%= @car.description %>
+          </p>
 
-<!-- Car Details Column -->
-  <div class="col">
-    <div class="card-body mx-5">
+            </div>
+          <% end %>
+        </div>
 
-      <!-- Car Title (Brand and Model side by side) -->
-      <h2 class="card-title">
-        <%= @car.brand %> - <%= @car.model %>
-      </h2>
+        <!-- Carousel navigation button (Previous) -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carImageCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <!-- Carousel navigation button (Next) -->
+        <button class="carousel-control-next" type="button" data-bs-target="#carImageCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
 
-      <!-- Car Price -->
-      <p class="card-text">
-        <strong>Price:</strong> €<%= @car.price %>
-      </p>
+    <!-- Car Details Column (Right) -->
+    <div class="col-md-6 my-5 border-0">
+      <div class="card card--container">
 
-      <!-- Car Brand -->
-      <p class="card-text">
-        <strong>Brand:</strong> <%= @car.brand %>
-      </p>
+        <!-- Car Details Content -->
+        <div class="card-body mx-5">
 
-      <!-- Car Year -->
-      <p class="card-text">
-        <strong>Year:</strong> <%= @car.year %>
-      </p>
+          <!-- Car Title (Brand and Model side by side) -->
+          <h2 class="card-title">
+            <!-- Display car brand and model -->
+            <%= @car.brand %> - <%= @car.model %>
+          </h2>
 
+<<<<<<< HEAD
         <!-- Car Description -->
       <p class="card-text">
         <strong>Description:</strong> <%= @car.description %>
@@ -38,6 +56,27 @@
       <%= simple_form_for [@car, @order] do |f| %>
       <%= f.submit "Buy", class: "btn btn-primary" %>
       <% end %>
+=======
+          <!-- Car Price -->
+          <p class="card-text">
+            <strong>Price:</strong> €<%= humanized_money @car.price %>
+          </p>
+
+          <!-- Car Brand -->
+          <p class="card-text">
+            <strong>Brand:</strong> <%= @car.brand %>
+          </p>
+
+          <!-- Car Year -->
+          <p class="card-text">
+            <strong>Year:</strong> <%= @car.year %>
+          </p>
+
+          <!-- Buy button (not functional for now) -->
+          <a href="#" class="btn btn-primary">Buy</a>
+        </div>
+      </div>
+>>>>>>> master
     </div>
   </div>
 </div>
