@@ -10,7 +10,13 @@
           <% @car.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
               <!-- Display car image using Cloudinary's 'cl_image_tag' helper -->
-              <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class: "d-block w-100" %>
+              <%= cl_image_tag photo.key, class: "carousel-image" %>
+
+              <!-- Car Description -->
+          <p class="card-text mt-3">
+            <strong>Description:</strong> <%= @car.description %>
+          </p>
+
             </div>
           <% end %>
         </div>
@@ -29,7 +35,7 @@
     </div>
 
     <!-- Car Details Column (Right) -->
-    <div class="col-md-6 my-5">
+    <div class="col-md-6 my-5 border-0">
       <div class="card card--container">
 
         <!-- Car Details Content -->
@@ -54,11 +60,6 @@
           <!-- Car Year -->
           <p class="card-text">
             <strong>Year:</strong> <%= @car.year %>
-          </p>
-
-          <!-- Car Description -->
-          <p class="card-text">
-            <strong>Description:</strong> <%= @car.description %>
           </p>
 
           <!-- Buy button (not functional for now) -->
