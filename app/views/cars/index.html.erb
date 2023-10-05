@@ -17,14 +17,14 @@
           <% end %>
         <% end %>
         <div class="card-body">
-          <h5 class="card-title"><strong><%= car.brand %></strong></h5>
-          <p class="card-text"><%= "#{car.year} #{car.model}" %></p>
+          <h4 class="card-title"><strong><%= car.brand %></strong></h4>
+          <h5 class="card-text"><%= "#{car.year} #{car.model}" %></h5>
           <p class="card-text" id="price--num">€<%= humanized_money car.price %></p>
           <p><%= link_to "See more details...", car_path(car.id) %></p>
           <p class="delete-edit-btn">
             <% if user_signed_in? && current_user == car.user %>
-              <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-primary link-btn" %>
-              <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-danger link-btn" %>
+              <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn" %>
+              <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
             <% end %>
           </p>
 
