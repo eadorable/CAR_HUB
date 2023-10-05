@@ -12,6 +12,9 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     @order = Order.new
+
+    # Fetch additional cars for display. It will only display 3 cars
+    @cars = Car.where.not(id: @car.id).limit(3)
   end
 
   # display the form to create a new car
