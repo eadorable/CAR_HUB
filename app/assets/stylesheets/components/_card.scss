@@ -2,7 +2,7 @@
 .car-card{
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  height: 570px;
+  height: 580px;
 
 
   .card-img-top{
@@ -21,11 +21,15 @@
   }
 
   .link-btn{
-    color:white;
+    // color:rgb(73, 115, 250);
     border-radius: 5px;
     padding: 5px;
-
   }
+
+  .link-btn:hover {
+    color: white;
+    transition: 0.2s;
+}
 
 }
 
