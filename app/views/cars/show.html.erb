@@ -40,20 +40,20 @@
         <!-- Car Details Content -->
         <div class="card-body mx-5">
 
-          <!-- Car Title (Brand and Model side by side) -->
+          <!-- Car Title (Brand) -->
           <h2 class="card-title" style="font-size: 24px;"> <!-- Increase text size as needed -->
-            <!-- Display car brand and model -->
-            <%= @car.brand %> - <%= @car.model %>
+          <!-- Display car brand -->
+          <strong><%= @car.brand %></strong>
           </h2>
 
           <!-- Car Price -->
           <p class="card-text" style="font-size: 22px;"> <!-- Increase text size as needed -->
-            Price:<strong id="price--num"> €<%= humanized_money @car.price %></strong>
+          <strong>Price: €<span id="price--num"><%= humanized_money @car.price %></span></strong>
           </p>
 
           <!-- Car Brand -->
           <p class="card-text" style="font-size: 18px;"> <!-- Increase text size as needed -->
-            <strong>Brand:</strong> <%= @car.brand %>
+            <strong>Model:</strong> <%= @car.model %>
           </p>
 
           <!-- Car Year -->
