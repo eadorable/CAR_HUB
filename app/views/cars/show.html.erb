@@ -48,10 +48,6 @@
             <%= @car.brand %> - <%= @car.model %>
           </h2>
 
-        <!-- Car Description -->
-      <p class="card-text">
-        <strong>Description:</strong> <%= @car.description %>
-      </p>
           <!-- Car Price -->
           <p class="card-text">
             Price:<strong id="price--num"> €<%= humanized_money @car.price %></strong>
