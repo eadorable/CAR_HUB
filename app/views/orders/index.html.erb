@@ -1,9 +1,2 @@
-<h1>I am order index view</h1>
-<h2>Number_of_orders: <%= @orders.count %></h2>
-
-<%@orders.each do |order| %>
-  <p>Ordered by: <%= order.user.email %></p>
-  <p>Ordered car: <%= order.car.brand %></p>
-  <p>Price: <%= order.car.price %></p>
-  <p>Ordered_at: <%= order.created_at %></p>
-<% end %>
+<h2>I am order index</h2>
+<%= @orders %>

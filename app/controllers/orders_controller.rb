@@ -3,11 +3,17 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
+  def show
+    # @order = Order.find(params[:id])
+    @order = current_user.orders.find(params[:id])
+    @car = @order.car # car associated with the order we are showing
+  end
+
   def create
     @car = Car.find(params[:car_id])
     @order = Order.new(car: @car, user: current_user)
     if @order.save
-      redirect_to orders_path
+      redirect_to order_path(@order.id)
     else
       render 'cars/show'
     end

@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :orders, only: %i[create]
   end
 
-  resources :orders, only: %i[index]
+  resources :orders, only: %i[index show]
 end
