@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ["carLogo"];
 
   connect() {
-    console.log("Hello from logo_controller.js")
+    // console.log("Hello from logo_controller.js")
 
     this.carLogoTargets.forEach((element) => {
       // const brand = element.textContent.trim().toLowerCase();
