@@ -47,16 +47,10 @@
             <%= @car.brand %> - <%= @car.model %>
           </h2>
 
-<<<<<<< HEAD
         <!-- Car Description -->
       <p class="card-text">
         <strong>Description:</strong> <%= @car.description %>
       </p>
-      
-      <%= simple_form_for [@car, @order] do |f| %>
-      <%= f.submit "Buy", class: "btn btn-primary" %>
-      <% end %>
-=======
           <!-- Car Price -->
           <p class="card-text">
             <strong>Price:</strong> €<%= humanized_money @car.price %>
@@ -73,10 +67,12 @@
           </p>
 
           <!-- Buy button (not functional for now) -->
-          <a href="#" class="btn btn-primary">Buy</a>
+          <%= simple_form_for [@car, @order] do |f| %>
+          <%= f.submit "Buy", class: "btn btn-primary" %>
+          <% end %>
+          
         </div>
       </div>
->>>>>>> master
     </div>
   </div>
 </div>

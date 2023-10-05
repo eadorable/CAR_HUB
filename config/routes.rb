@@ -10,4 +10,6 @@ Rails.application.routes.draw do
     resources :users, only: %i[new create]
     resources :orders, only: %i[create]
   end
+
+  resources :orders, only: %i[index]
 end
