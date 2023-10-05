@@ -19,7 +19,7 @@
         <div class="card-body">
           <h5 class="card-title"><strong><%= car.brand %></strong></h5>
           <p class="card-text"><%= "#{car.year} #{car.model}" %></p>
-          <p class="card-text">€<%= humanized_money car.price %></p>
+          <p class="card-text" id="price--num">€<%= humanized_money car.price %></p>
           <p><%= link_to "See more details...", car_path(car.id) %></p>
           <p class="delete-edit-btn">
             <% if user_signed_in? && current_user == car.user %>
