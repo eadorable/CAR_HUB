@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 
     <!-- Car Image Carousel Column (Left) -->
-    <div class="col-md-6 my-5">
+    <div class="col-md-9 my-5">
       <div id="carImageCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
 
@@ -28,7 +28,7 @@
       </div>
 
       <!-- Car Description -->
-      <div class="mt-3">
+      <div class="mt-3" style="font-size: 20px;"> <!-- Increase text size as needed -->
         <p class="card-text">
           <strong>Description:</strong> <%= @car.description %>
         </p>
@@ -36,30 +36,30 @@
     </div>
 
     <!-- Car Details Column (Right) -->
-    <div class="col-md-6 my-5 border-0">
+    <div class="col-md-3 my-5 border-0">
       <div class="card card--container">
 
         <!-- Car Details Content -->
         <div class="card-body mx-5">
 
           <!-- Car Title (Brand and Model side by side) -->
-          <h2 class="card-title">
+          <h2 class="card-title" style="font-size: 24px;"> <!-- Increase text size as needed -->
             <!-- Display car brand and model -->
             <%= @car.brand %> - <%= @car.model %>
           </h2>
 
           <!-- Car Price -->
-          <p class="card-text">
+          <p class="card-text" style="font-size: 22px;"> <!-- Increase text size as needed -->
             Price:<strong id="price--num"> €<%= humanized_money @car.price %></strong>
           </p>
 
           <!-- Car Brand -->
-          <p class="card-text">
+          <p class="card-text" style="font-size: 18px;"> <!-- Increase text size as needed -->
             <strong>Brand:</strong> <%= @car.brand %>
           </p>
 
           <!-- Car Year -->
-          <p class="card-text">
+          <p class="card-text" style="font-size: 18px;"> <!-- Increase text size as needed -->
             <strong>Year:</strong> <%= @car.year %>
           </p>
 
