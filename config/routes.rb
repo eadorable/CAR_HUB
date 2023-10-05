@@ -8,5 +8,8 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :cars do
     resources :users, only: %i[new create]
+    resources :orders, only: %i[create]
   end
+
+  resources :orders, only: %i[index show]
 end
