@@ -34,8 +34,8 @@
     </div>
 
     <!-- Car Details Column (Right) -->
-    <div class="col-md-3 my-5 border-0">
-      <div class="card card--container">
+    <div class="col-md-3 my-5 border-0 text-center">
+      <div class="card card--container square-content  box-shadow">
 
         <!-- Car Details Content -->
         <div class="card-body mx-5">
@@ -71,6 +71,10 @@
     </div>
   </div>
 </div>
+<!-- Split text between car info and car cards -->
+<div class="col-md-12 text-center my-5">
+      <h3>Cars in inventory:</h3>
+    </div>
 
 <!-- Car Cards Section (same code from index but modified the .each method to display 3 cards) -->
 <div class="container">
@@ -78,28 +82,25 @@
     <% @cars.first(3).each do |car| %>
       <div class="col-md-4">
         <div class="card mt-4 car-card">
-          <% if car.photos.present? %>
-            <%= link_to car_path(car.id) do %>
+          <%= link_to car_path(car.id) do %> <!-- Wrap the entire card content in a link -->
+            <% if car.photos.present? %>
               <%= cl_image_tag car.photos.first.key, class: "card-img-top", alt: "Car Photo" %>
-            <% end %>
-          <% else %>
-            <!-- Use the default photo when no photos are available -->
-            <%= link_to car_path(car.id) do %>
+            <% else %>
+              <!-- Use the default photo when no photos are available -->
               <%= image_tag "usedcar_hub.jpg", class: "card-img-top", alt: "Default Car Photo" %>
             <% end %>
-          <% end %>
-          <div class="card-body">
-            <h4 class="card-title"><strong><%= car.brand %></strong></h4>
-            <h5 class="card-text"><%= "#{car.year} #{car.model}" %></h5>
-            <p class="card-text" id="price--num">€<%= humanized_money car.price %></p>
-            <p><%= link_to "See more details...", car_path(car.id) %></p>
-            <p class="delete-edit-btn">
-              <% if user_signed_in? && current_user == car.user %>
-                <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn" %>
-                <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
-              <% end %>
-            </p>
-          </div>
+            <div class="card-body card-content"> <!-- Add a class to the card content -->
+              <h4 class="card-title" style="color: black;"><strong><%= car.brand %></strong></h4>
+              <h5 class="card-text" style="color: black;"><%= "#{car.year} #{car.model}" %></h5>
+              <p class="card-text" id="price--num" style="color: black;">€<%= humanized_money car.price %></p>
+              <p class="delete-edit-btn">
+                <% if user_signed_in? && current_user == car.user %>
+                  <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn" %>
+                  <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
+                <% end %>
+              </p>
+            </div>
+          <% end %> <!-- Close the link here -->
         </div>
       </div>
     <% end %>
