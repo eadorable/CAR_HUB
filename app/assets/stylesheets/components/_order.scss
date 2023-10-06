@@ -5,17 +5,22 @@
 }
 
 .order--conatiner{
-  border-radius: 10px;
-  border: 3px solid #f37a27;
+  border-radius: 5px;
+  border: 3px solid gray;
 
 }
 
 .p--orange{
-  color: #f37a27;
+  // color: #f37a27;
+  color:#465BFD ;
   font-weight: bold;
 }
 
 .p--status{
-  background-color: #f37a27;
+  background-color: #465BFD;
   color: white;
+}
+
+.container--color{
+  background-color:white;
 }
