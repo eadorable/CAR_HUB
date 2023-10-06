@@ -2,9 +2,9 @@ class CarsController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
   # Display a list of cars with optional brand filtering
   def index
-    @cars = Car.all
+    @cars = Car.available
     if params[:search].present? && params[:search][:query] != ''
-      @cars = Car.grobal_search(params[:search][:query])
+      @cars = Car.global_search(params[:search][:query])
     end
   end
 
