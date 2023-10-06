@@ -18,19 +18,16 @@
     <% @orders.each do |order| %>
     <tr>
       <th scope="row"><%= order.id %></th>
-      <td><%= "#{order.car.year} #{order.car.brand} #{order.car.model}" %></td>
+      <td><%= "#{order.car.year} #{order.car.model}" %></td>
       <td><%= number_to_currency(order.car.price, precision: 2, unit: "€", separator: ".") %></td>
       <td><%= order.created_at %></td>
       <% if Time.now - order.created_at > 40 %>
-        <td>Congratulations, your car is on its way!</td>
+        <td>Delivered</td>
       <% else %>
-        <td>Your order is being processed...</td>
+        <td>Processing</td>
       <% end %>
 
     </tr>
     <% end %>
   </tbody>
 </table>
-
-
-<h2>Sell History</h2>
