@@ -2,8 +2,7 @@
 .car-card{
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  height: 580px;
-
+  height: 540px;
 
   .card-img-top{
     border-radius: 10px; // matches the border radius of the card
@@ -29,11 +28,19 @@
   .link-btn:hover {
     color: white;
     transition: 0.2s;
-}
+  }
 
+  .card-title {
+    color: black;
+  }
+
+  .card-text {
+    color: black;
+  }
 }
 
 .card--container {
+  color: black;
   display: flex;
 }
 

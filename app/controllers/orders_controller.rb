@@ -11,8 +11,10 @@ class OrdersController < ApplicationController
 
   def create
     @car = Car.find(params[:car_id])
+    @car.sold = true
+    @car.save
     @order = Order.new(car: @car, user: current_user)
-    if @order.save
+    if @order.save!
       redirect_to order_path(@order.id)
     else
       render 'cars/show'
