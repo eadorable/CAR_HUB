@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-    
+
   </head>
 
   <body>
-  <%= render "shared/navbar" %>
-  <div class="container">
-    <%= yield %>
-  </div>
+    <%= render "shared/navbar" %>
+      <div class="container my-5">
+        <%= yield %>
+      </div>
+    <%= render "shared/footer" %>
   </body>
 </html>
