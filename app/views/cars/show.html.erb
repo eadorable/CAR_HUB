@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
 
     <!-- Car Image Carousel Column (Left) -->
-    <div class="col-md-9 my-5">
+    <div class="col-md-9 my-1">
       <div id="carImageCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <!-- Loop through car photos and create carousel items -->
@@ -26,44 +26,47 @@
       </div>
 
       <!-- Car Description -->
-      <div class="mt-3" style="font-size: 20px;"> <!-- Increase text size as needed -->
-        <p class="card-text">
-          <strong>Description:</strong> <%= @car.description %>
+      <div class="mt-3">
+        <p class="card--description-text">
+          <h5 class="custom-h5">Description:</h5>
+        </p>
+        <p class="card--description-text mb-0">
+          <%= @car.description %>
         </p>
       </div>
     </div>
 
     <!-- Car Details Column (Right) -->
-    <div class="col-md-3 my-5 border-0 text-center">
+    <div class="col-md-3 my-1 border-0 text-center">
       <div class="card card--container square-content  box-shadow">
 
         <!-- Car Details Content -->
         <div class="card-body mx-5">
 
           <!-- Car Title (Brand) -->
-          <h2 class="card-title" style="font-size: 24px;"> <!-- Increase text size as needed -->
+          <h2 class="show-card-title mb-3">
           <!-- Display car brand -->
-          <strong><%= @car.brand %></strong>
+          <%= @car.brand %>
           </h2>
 
-          <!-- Car Price -->
-          <p class="card-text" style="font-size: 22px;"> <!-- Increase text size as needed -->
-          <strong>Price: €<span id="price--num"><%= humanized_money @car.price %></span></strong>
-          </p>
-
           <!-- Car Brand -->
-          <p class="card-text" style="font-size: 18px;"> <!-- Increase text size as needed -->
-            <strong>Model:</strong> <%= @car.model %>
-          </p>
+          <div class="show-card-text mb-0">
+            <strong>Model:</strong>
+            <p><%= @car.model %></p>
 
           <!-- Car Year -->
-          <p class="card-text" style="font-size: 18px;"> <!-- Increase text size as needed -->
-            <strong>Year:</strong> <%= @car.year %>
+            <strong>Year:</strong>
+            <p><%= @car.year %></p>
+          </div>
+
+          <!-- Car Price -->
+          <p class="show-card--price-text mb-4">
+          <strong>€<span id="price--num"><%= humanized_money @car.price %></span></strong>
           </p>
 
           <!-- Buy button (not functional for now) -->
           <%= simple_form_for [@car, @order] do |f| %>
-          <%= f.submit "Buy", class: "btn btn-primary" %>
+          <%= f.submit "Buy Now", class: "btn btn-primary" %>
           <% end %>
 
         </div>
@@ -72,9 +75,9 @@
   </div>
 </div>
 <!-- Split text between car info and car cards -->
-<div class="col-md-12 text-center my-5">
-      <h3>Cars in inventory:</h3>
-    </div>
+<div class="col-md-12 text-center my-0 mb-0 mt-5">
+  <h3 class="custom-h3">Cars in inventory:</h3>
+</div>
 
 <!-- Car Cards Section (same code from index but modified the .each method to display 3 cards) -->
 <div class="container">

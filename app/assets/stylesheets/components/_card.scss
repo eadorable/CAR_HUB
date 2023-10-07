@@ -1,8 +1,8 @@
-
-.car-card{
+.car-card {
   border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  height: 540px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  height: 530px;
+  text-decoration: none;
 
   .card-img-top{
     border-radius: 10px; // matches the border radius of the card
@@ -15,14 +15,14 @@
     text-decoration: none;
   }
 
-  .delete-edit-btn{
+  .delete-edit-btn {
     text-align: right;
   }
 
-  .link-btn{
-    // color:rgb(73, 115, 250);
+  .link-btn {
     border-radius: 5px;
     padding: 5px;
+    // color: rgb(73, 115, 250);
   }
 
   .link-btn:hover {
@@ -32,16 +32,25 @@
 
   .card-title {
     color: black;
+    font-size: 1.7rem; /* Adjust the size as needed */
+    font-weight: 700;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-decoration: none;
   }
 
   .card-text {
     color: black;
+    font-size: 1.3rem; /* Adjust the size as needed */
+    font-weight: 400;
+    font-family: 'Merriweather Sans', sans-serif;
+    text-decoration: none;
   }
 }
 
 .card--container {
   color: black;
   display: flex;
+  text-decoration: none;
 }
 
 .col-md-4:hover {

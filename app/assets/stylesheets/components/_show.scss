@@ -22,5 +22,46 @@
   justify-content: center;
   align-items: center;
   padding: 50px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3); /* Modify the shadow values as needed */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Modify the shadow values as needed */
+}
+
+.card--container {
+  text-align: center;
+  font-family: 'Merriweather Sans', sans-serif;
+
+  .show-card-title {
+    font-size: 1.9em;
+    font-weight: 700;
+    margin: 0;
+    bottom: 0;
+    font-family: 'Merriweather Sans', sans-serif;
+  }
+
+  .show-card--price-text {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .show-card-text {
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+}
+
+.card--description-text {
+  font-size: 1rem;
+  font-weight: 300;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.custom-h5 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.custom-h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-family: 'Merriweather Sans', sans-serif;
 }
