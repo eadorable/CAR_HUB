@@ -64,9 +64,11 @@
           <strong>€<span id="price--num"><%= humanized_money @car.price %></span></strong>
           </p>
 
-          <!-- Buy button (not functional for now) -->
-          <%= simple_form_for [@car, @order] do |f| %>
-          <%= f.submit "Buy Now", class: "btn btn-primary" %>
+          <!-- Only show the buy button if the user is not the car owner -->
+          <% if user_signed_in? && current_user != @car.user %>
+            <%= simple_form_for [@car, @order] do |f| %>
+            <%= f.submit "Buy Now", class: "btn btn-primary" %>
+            <% end %>
           <% end %>
 
         </div>
