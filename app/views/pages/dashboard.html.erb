@@ -1,7 +1,8 @@
 <p>Current_user: <%= current_user.email %></p>
 <div class="row">
+
   <h2>Order History</h2>
-  <table class="table">
+  <table class="table mb-5">
     <thead class="thead-light">
       <tr>
         <th scope="col">Order no.</th>
@@ -18,8 +19,10 @@
           <td><%= "#{order.car.year} #{order.car.model}" %></td>
           <td><%= number_to_currency(order.car.price, precision: 2, unit: "€", separator: ".") %></td>
           <td><%= order.created_at %></td>
+          <!--If above 40 seconds has passed from the time of order, status will change to "For delivery." -->
+          <!--This is for presentation purposes only -->
           <% if Time.now - order.created_at > 40 %>
-            <td>Delivered</td>
+            <td>For delivery</td>
           <% else %>
             <td>Processing</td>
           <% end %>
@@ -29,14 +32,13 @@
   </table>
 
   <h2>Sell History</h2>
-  <table class="table">
+  <table class="table mb-5">
     <thead class="thead-light">
       <tr>
         <th scope="col">Order no.</th>
         <th scope="col">Product</th>
         <th scope="col">Price</th>
         <th scope="col">Order Date</th>
-        <th scope="col">Status</th>
       </tr>
     </thead>
     <tbody>
@@ -48,11 +50,13 @@
               order.car_id == car.id
             end %>
 
-            <th scope="row"><%= sold_car.id %></th>
-            <td><%= "#{car.year} #{car.model}" %></td>
-            <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
-            <td><%= sold_car.created_at%></td>
-            <td>Delivered</td>
+            <% if sold_car != nil %>
+              <th scope="row"><%= sold_car.id%></th>
+              <td><%= "#{car.year} #{car.model}" %></td>
+              <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
+              <td><%= sold_car.created_at%></td>
+
+            <% end %>
           </tr>
         <% end %>
       <% end %>
@@ -71,7 +75,7 @@
     </thead>
     <tbody>
       <% @cars.each do |car| %>
-        <% if car.sold == false && current_user == car.user %>
+        <% if car.sold == false %>
           <tr>
             <th scope="row"><%= car.id %></th>
             <td><%= "#{car.year} #{car.model}" %></td>
