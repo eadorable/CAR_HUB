@@ -17,7 +17,7 @@
             <% end %>
             <div class="card-body card-content"> <!-- Add a class to the card content -->
               <h4 class="card-title"><strong><%= car.brand %></strong></h4>
-              <h5 class="card-text" style="color: black;"><%= "#{car.year} #{car.model}" %></h5>
+              <h5 class="card-text"><%= "#{car.year} #{car.model}" %></h5>
               <p class="card-text" id="price--num">€<%= humanized_money car.price %></p>
               <p class="delete-edit-btn">
                 <% if user_signed_in? && current_user == car.user %>
