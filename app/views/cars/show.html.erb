@@ -88,7 +88,7 @@
 <!-- Car Cards Section (same code from index but modified the .each method to display 3 cards) -->
 <div class="container">
   <div class="row">
-    <% @cars.first(3).each do |car| %>
+    <% @cars.last(3).each do |car| %>
       <div class="col-md-4">
         <div class="card mt-4 car-card">
           <%= link_to car_path(car.id) do %> <!-- Wrap the entire card content in a link -->
