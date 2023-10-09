@@ -10,3 +10,14 @@
 .navbar-usedcar .navbar-brand img {
   width: 40px;
 }
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+.main {
+  margin-top: 98px;
+}
