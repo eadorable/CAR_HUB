@@ -16,12 +16,12 @@
               <%= image_tag "usedcar_hub.jpg", class: "card-img-top", alt: "Default Car Photo" %>
             <% end %>
             <div class="card-body card-content"> <!-- Add a class to the card content -->
-              <h4 class="card-title" style="color: black;"><strong><%= car.brand %></strong></h4>
+              <h4 class="card-title"><strong><%= car.brand %></strong></h4>
               <h5 class="card-text" style="color: black;"><%= "#{car.year} #{car.model}" %></h5>
-              <p class="card-text" id="price--num" style="color: black;">€<%= humanized_money car.price %></p>
+              <p class="card-text" id="price--num">€<%= humanized_money car.price %></p>
               <p class="delete-edit-btn">
                 <% if user_signed_in? && current_user == car.user %>
-                  <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn" %>
+                  <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn m-1" %>
                   <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
                 <% end %>
               </p>
