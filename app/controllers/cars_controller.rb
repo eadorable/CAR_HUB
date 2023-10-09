@@ -4,7 +4,7 @@ class CarsController < ApplicationController
   def index
     @cars = Car.available
     if params[:search].present? && params[:search][:query] != ''
-      @cars = Car.global_search(params[:search][:query])
+      @cars = Car.available.global_search(params[:search][:query])
     end
   end
 
