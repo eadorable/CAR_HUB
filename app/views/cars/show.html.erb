@@ -38,7 +38,7 @@
 
     <!-- Car Details Column (Right) -->
     <div class="col-md-3 my-1 border-0 text-center">
-      <div class="card card--container square-content  box-shadow">
+      <div class="card card--container square-content  box-shadow car-info-plate">
 
         <!-- Car Details Content -->
         <div class="card-body mx-5">
@@ -70,10 +70,11 @@
             <%= f.submit "Buy Now", class: "btn btn-primary" %>
             <% end %>
           <% else %>
-            <%= link_to "Edit", edit_car_path(@car.id), class: "btn btn-outline-info link-btn m-2" %>
-            <%= link_to "Delete", car_path(@car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
+            <p class="delete-edit-btn">
+              <%= link_to "Edit", edit_car_path(@car.id), class: "btn btn-outline-info link-btn m-1" %>
+              <%= link_to "Delete", car_path(@car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
+            </p>
           <% end %>
-
         </div>
       </div>
     </div>
@@ -103,7 +104,7 @@
               <p class="card-text" id="price--num" style="color: black;">€<%= humanized_money car.price %></p>
               <p class="delete-edit-btn">
                 <% if user_signed_in? && current_user == car.user %>
-                  <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn" %>
+                  <%= link_to "Edit", edit_car_path(car.id), class: "btn btn-outline-info link-btn m-1" %>
                   <%= link_to "Delete", car_path(car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
                 <% end %>
               </p>

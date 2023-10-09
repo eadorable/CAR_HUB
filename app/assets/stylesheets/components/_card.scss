@@ -19,16 +19,6 @@
     text-align: right;
   }
 
-  .link-btn {
-    border-radius: 5px;
-    padding: 5px;
-    // color: rgb(73, 115, 250);
-  }
-
-  .link-btn:hover {
-    color: white;
-    transition: 0.2s;
-  }
 
   .card-title {
     color: black;
@@ -61,4 +51,15 @@
 #price--num {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.link-btn {
+  border-radius: 5px;
+  padding: 5px;
+  // color: rgb(73, 115, 250);
+}
+
+.link-btn:hover {
+  color: white;
+  transition: 0.2s;
 }
