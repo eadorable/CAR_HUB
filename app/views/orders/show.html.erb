@@ -49,7 +49,7 @@
                 <h5 class="mb-0 p--blue"><strong>Total</strong></h5>
                 <% total = (@order.car.price)  %>
                 <!--use number_to_currency to display nice price-->
-                <p class="lead mb-0" ><%= number_to_currency(total, precision: 2, unit: "€", separator: ".") %></p>
+                <p class="lead mb-0" ><strong><%= number_to_currency(total, precision: 2, unit: "€", separator: ".") %></strong></p>
               </div>
             </div>
 
