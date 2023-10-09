@@ -15,7 +15,7 @@ class CarsController < ApplicationController
 
     # Fetch additional cars for display. It will only display 3 cars
     # @cars = Car.where.not(id: @car.id).limit(3)
-    @cars = Car.available.limit(3)
+    @cars = Car.available.where.not(id: @car.id).limit(3)
   end
 
   # display the form to create a new car
