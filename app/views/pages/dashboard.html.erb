@@ -11,12 +11,14 @@
       </tr>
     </thead>
     <tbody>
+      <!--initialize total_order_price-->
+      <% total_order_price = 0 %>
       <% @orders.each do |order| %>
         <tr>
           <th scope="row"><%= order.id %></th>
           <td><%= "#{order.car.year} #{order.car.model}" %></td>
           <td><%= number_to_currency(order.car.price, precision: 2, unit: "€", separator: ".") %></td>
-          <td><%= order.created_at %></td>
+          <td><%= order.created_at.strftime("%d/%m/%Y") %></td>
           <!--If above 40 seconds has passed from the time of order, status will change to "For delivery." -->
           <!--This is for presentation purposes only -->
           <% if Time.now - order.created_at > 40 %>
@@ -25,7 +27,15 @@
             <td>Processing</td>
           <% end %>
         </tr>
+        <!--Add the price of each order to total_order_price-->
+        <% total_order_price += order.car.price %>
       <% end %>
+      <!-- Display the total price row -->
+      <tr>
+        <!-- colspan="2" helps the total price allign with the "Price column" -->
+        <th colspan="2" class="text-right">Total:</th>
+        <td><%= number_to_currency(total_order_price, precision: 2, unit: "€", separator: ".") %></td>
+      </tr>
     </tbody>
   </table>
 
@@ -40,24 +50,24 @@
       </tr>
     </thead>
     <tbody>
+      <!--initialize total_order_price-->
+      <% total_order_price = 0 %>
       <% @cars.each do |car| %>
-        <% if car.sold == true && current_user == car.user %>
+        <% if car.sold == true %>
           <tr>
-            <!--find order.id for sold car-->
-            <% sold_car = @orders.find do |order|
-              order.car_id == car.id
-            end %>
-
-            <% if sold_car != nil %>
-              <th scope="row"><%= sold_car.id%></th>
+              <th scope="row"><%= car.id%></th>
               <td><%= "#{car.year} #{car.model}" %></td>
               <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
-              <td><%= sold_car.created_at%></td>
-
-            <% end %>
+              <td><%= car.created_at.strftime("%d/%m/%Y")%></td>
           </tr>
+        <% total_order_price += car.price %>
         <% end %>
       <% end %>
+      <tr>
+        <!-- colspan="2" helps the total price allign with the "Price column" -->
+        <th colspan="2" class="text-right">Total:</th>
+        <td><%= number_to_currency(total_order_price, precision: 2, unit: "€", separator: ".") %></td>
+      </tr>
     </tbody>
   </table>
 
@@ -78,7 +88,7 @@
             <th scope="row"><%= car.id %></th>
             <td><%= "#{car.year} #{car.model}" %></td>
             <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
-            <td><%= car.created_at%></td>
+            <td><%= car.created_at.strftime("%d/%m/%Y")%></td>
           </tr>
         <% end %>
       <% end %>
