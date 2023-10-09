@@ -1,33 +1,88 @@
 
-<p>Current user: <%= current_user.email %></p>
-
-<h2>Order History</h2>
-
-
-<table class="table">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">Order no.</th>
-      <th scope="col">Product</th>
-      <th scope="col">Price</th>
-      <th scope="col">Order Date</th>
-      <th scope="col">Status</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @orders.each do |order| %>
-    <tr>
-      <th scope="row"><%= order.id %></th>
-      <td><%= "#{order.car.year} #{order.car.model}" %></td>
-      <td><%= number_to_currency(order.car.price, precision: 2, unit: "€", separator: ".") %></td>
-      <td><%= order.created_at %></td>
-      <% if Time.now - order.created_at > 40 %>
-        <td>Delivered</td>
-      <% else %>
-        <td>Processing</td>
+  <h2>Order History</h2>
+  <table class="table mb-5">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Order no.</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Order Date</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <th scope="row"><%= order.id %></th>
+          <td><%= "#{order.car.year} #{order.car.model}" %></td>
+          <td><%= number_to_currency(order.car.price, precision: 2, unit: "€", separator: ".") %></td>
+          <td><%= order.created_at %></td>
+          <!--If above 40 seconds has passed from the time of order, status will change to "For delivery." -->
+          <!--This is for presentation purposes only -->
+          <% if Time.now - order.created_at > 40 %>
+            <td>For delivery</td>
+          <% else %>
+            <td>Processing</td>
+          <% end %>
+        </tr>
       <% end %>
+    </tbody>
+  </table>
 
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <h2>Sell History</h2>
+  <table class="table mb-5">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Order no.</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Order Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
+        <% if car.sold == true && current_user == car.user %>
+          <tr>
+            <!--find order.id for sold car-->
+            <% sold_car = @orders.find do |order|
+              order.car_id == car.id
+            end %>
+
+            <% if sold_car != nil %>
+              <th scope="row"><%= sold_car.id%></th>
+              <td><%= "#{car.year} #{car.model}" %></td>
+              <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
+              <td><%= sold_car.created_at%></td>
+
+            <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h2>My Cars</h2>
+  <table class="table">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Car no.</th>
+        <th scope="col">Product</th>
+        <th scope="col">Price</th>
+        <th scope="col">Post Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cars.each do |car| %>
+        <% if car.sold == false %>
+          <tr>
+            <th scope="row"><%= car.id %></th>
+            <td><%= "#{car.year} #{car.model}" %></td>
+            <td><%= number_to_currency(car.price, precision: 2, unit: "€", separator: ".") %></td>
+            <td><%= car.created_at%></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>

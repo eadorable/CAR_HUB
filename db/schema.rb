@@ -51,7 +51,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_06_133502) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
-    t.boolean "sold", default: false
+    t.boolean "sold", default: false, null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
