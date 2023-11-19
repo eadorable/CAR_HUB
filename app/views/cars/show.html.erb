@@ -6,13 +6,15 @@
       <div id="carImageCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           <!-- Loop through car photos and create carousel items -->
-          <% @car.photos.each_with_index do |photo, index| %>
+          <% img_urls = JSON.parse(@car.img_url) %>
+          <% img_urls.each_with_index do |url, index| %>
             <div class="carousel-item <%= index == 0 ? 'active' : '' %>">
-              <!-- Display car image using Cloudinary's 'cl_image_tag' helper -->
-              <%= cl_image_tag photo.key, class: "carousel-image" %>
+              <!-- Display car image-->
+              <img class="carousel-image" src="<%= url %>" alt="car photo">
             </div>
           <% end %>
         </div>
+
         <!-- Carousel navigation button (Previous) -->
         <button class="carousel-control-prev" type="button" data-bs-target="#carImageCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -71,8 +73,8 @@
             <% end %>
           <% else %>
             <p class="delete-edit-btn">
-              <%= link_to "Edit", edit_car_path(@car.id), class: "btn btn-outline-info link-btn m-1" %>
-              <%= link_to "Delete", car_path(@car.id), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
+              <%= link_to "Edit", edit_car_path(@car), class: "btn btn-outline-info link-btn m-1" %>
+              <%= link_to "Delete", car_path(@car), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger link-btn" %>
             </p>
           <% end %>
         </div>
@@ -92,8 +94,9 @@
       <div class="col-md-4">
         <div class="card mt-4 car-card">
           <%= link_to car_path(car.id) do %> <!-- Wrap the entire card content in a link -->
-            <% if car.photos.present? %>
-              <%= cl_image_tag car.photos.first.key, class: "card-img-top", alt: "Car Photo" %>
+            <% img_urls = JSON.parse(car.img_url) %>
+            <% if car.img_url.present? %>
+              <img class="card-img-top" src="<%= img_urls.first %>" alt="car photo">
             <% else %>
               <!-- Use the default photo when no photos are available -->
               <%= image_tag "usedcar_hub.jpg", class: "card-img-top", alt: "Default Car Photo" %>
