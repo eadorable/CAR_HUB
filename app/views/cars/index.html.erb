@@ -9,8 +9,11 @@
       <div class="col-md-4">
         <div class="card mt-4 car-card">
           <%= link_to car_path(car.id) do %> <!-- Wrap the entire card content in a link -->
-            <% if car.photos.present? %>
-              <%= cl_image_tag car.photos.first.key, class: "card-img-top", alt: "Car Photo" %>
+            <% if car.img_url.present? %>
+
+              <% img = JSON.parse(car.img_url) %>
+              <img class="card-img-top" src="<%= img.first %>" alt="car photo" >
+
             <% else %>
               <!-- Use the default photo when no photos are available -->
               <%= image_tag "usedcar_hub.jpg", class: "card-img-top", alt: "Default Car Photo" %>

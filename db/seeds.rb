@@ -28,12 +28,23 @@ end
 
 puts 'creating cars...'
 # Create an array of hashes containing the cars data we want to seed
+# img_urls = ['https://i.ebayimg.com/images/g/HfwAAOSw9u9kSYGd/s-l1600.jpg', 'https://i.ebayimg.com/images/g/GUQAAOSwfNZksqTF/s-l1600.jpg', 'https://i.ebayimg.com/images/g/uJoAAOSwNcdlB4vN/s-l1600.jpg', 'https://i.ebayimg.com/images/g/ScAAAOSwvYNlVNMj/s-l1600.jpg' ]
+# cars_data = [
+#   { brand: 'Ferrari', year: 2021, model: 'F8 Tributo', price_cents: 300000, description: 'Top of the line Ferrari', img_url: img_urls },
+#   { brand: 'Lamborghini', year: 2021, model: 'Aventador', price_cents: 400000, description: 'Top of the Line Lamborghini', img_url: img_urls },
+#   { brand: 'Porsche', year: 2021, model: '911 Turbo S', price_cents: 200000, description: 'Top of the line Porsche', img_url: img_urls },
+#   { brand: 'Aston Martin', year: 2021, model: 'DBS Superleggera', price_cents: 250000, description: 'Top of the line Aston Martin', img_url: img_urls }
+# ]
+
+img_urls = ['https://i.ebayimg.com/images/g/HfwAAOSw9u9kSYGd/s-l1600.jpg', 'https://i.ebayimg.com/images/g/GUQAAOSwfNZksqTF/s-l1600.jpg', 'https://i.ebayimg.com/images/g/uJoAAOSwNcdlB4vN/s-l1600.jpg', 'https://i.ebayimg.com/images/g/ScAAAOSwvYNlVNMj/s-l1600.jpg' ];
+
 cars_data = [
-  { brand: 'Ferrari', year: 2021, model: 'F8 Tributo', price_cents: 300000, description: 'Top of the line Ferrari' },
-  { brand: 'Lamborghini', year: 2021, model: 'Aventador', price_cents: 400000, description: 'Top of the Line Lamborghini' },
-  { brand: 'Porsche', year: 2021, model: '911 Turbo S', price_cents: 200000, description: 'Top of the line Porsche' },
-  { brand: 'Aston Martin', year: 2021, model: 'DBS Superleggera', price_cents: 250000, description: 'Top of the line Aston Martin' }
-]
+  { brand: 'Ferrari', year: 2021, model: 'F8 Tributo', price_cents: 300000, description: 'Top of the line Ferrari', img_url: img_urls },
+  { brand: 'Lamborghini', year: 2021, model: 'Aventador', price_cents: 400000, description: 'Top of the Line Lamborghini', img_url: img_urls },
+  { brand: 'Porsche', year: 2021, model: '911 Turbo S', price_cents: 200000, description: 'Top of the line Porsche', img_url: img_urls },
+  { brand: 'Aston Martin', year: 2021, model: 'DBS Superleggera', price_cents: 250000, description: 'Top of the line Aston Martin', img_url: img_urls }
+];
+
 
 # Create an empty array to store the cars
 cars = []
