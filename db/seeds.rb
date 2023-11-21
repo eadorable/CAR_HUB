@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create
-# roolback to previous state(10/2023)
+# # 11-21-2023, no changes made.
 puts 'cleaning database...'
 User.destroy_all
 Car.destroy_all
