@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
     @car.save
     @order = Order.new(car: @car, user: current_user)
     if @order.save!
-      redirect_to order_path(@order.id)
+      redirect_to dashboard_path
     else
       render 'cars/show'
     end
