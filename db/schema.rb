@@ -9,9 +9,8 @@
 # migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
-# 11-21-2023, no changes made
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_18_233837) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_090838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -53,7 +52,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_18_233837) do
     t.datetime "updated_at", null: false
     t.integer "price_cents", default: 0, null: false
     t.boolean "sold", default: false, null: false
-    t.string "img_url"
     t.index ["user_id"], name: "index_cars_on_user_id"
   end
 
