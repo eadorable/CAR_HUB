@@ -1,4 +1,4 @@
-# 11-21-2023, no changes made.
+
 class Car < ApplicationRecord
   belongs_to :user
   has_many :orders, dependent: :destroy
